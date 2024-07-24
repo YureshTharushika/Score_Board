@@ -1,0 +1,9 @@
+<div>
+    <h2>Game Results</h2>
+    <div *ngFor="let player of players">
+      {{player.name}}: {{player.totalScore}}
+    </div>
+    <h3>Winner: {{winner?.name}}</h3>
+    <button (click)="startNewGame()">Start New Game</button>
+  </div>
+  

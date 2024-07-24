@@ -1,0 +1,9 @@
+<div>
+    <h2>Game Board</h2>
+    <div *ngFor="let player of players">
+      {{player.name}}: 
+      <input type="number" [(ngModel)]="player.scores[currentRound]" placeholder="Score for Round {{currentRound + 1}}">
+    </div>
+    <button (click)="nextRound()">Next Round</button>
+  </div>
+  

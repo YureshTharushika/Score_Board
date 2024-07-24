@@ -1,0 +1,12 @@
+<div>
+    <h2>Add Players</h2>
+    <form (ngSubmit)="addPlayer()">
+      <input type="text" [(ngModel)]="playerName" placeholder="Player Name" name="playerName" required>
+      <button type="submit">Add Player</button>
+    </form>
+    <div *ngFor="let player of players; let i = index">
+      {{i + 1}}. {{player.name}}
+    </div>
+    <button (click)="startGame()" [disabled]="players.length < 2">Start Game</button>
+  </div>
+  

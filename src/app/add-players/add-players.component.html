@@ -1,12 +1,23 @@
-<div>
-    <h2>Add Players</h2>
-    <form (ngSubmit)="addPlayer()">
-      <input type="text" [(ngModel)]="playerName" placeholder="Player Name" name="playerName" required>
-      <button type="submit">Add Player</button>
-    </form>
-    <div *ngFor="let player of players; let i = index">
-      {{i + 1}}. {{player.name}}
+<div class="container">
+  <h1>Hello there, let's play!</h1>
+  <mat-card>
+    <div class="player-form">
+      <mat-form-field appearance="fill">
+        <mat-label>Player Name</mat-label>
+        <input matInput [(ngModel)]="playerName" />
+      </mat-form-field>
+      <button mat-raised-button (click)="addPlayer()">Add Player</button>
     </div>
-    <button (click)="startGame()" [disabled]="players.length < 2">Start Game</button>
-  </div>
-  
+    <div class="player-list">
+      <mat-chip-set>
+        <mat-chip *ngFor="let player of players; let i = index" [removable]="true" (matChipRemove)="removePlayer(i)">
+          {{ player.name }}
+          <mat-icon matChipRemove>cancel</mat-icon>
+        </mat-chip>
+      </mat-chip-set>
+    </div>
+    <div class="start-button-container">
+      <button mat-raised-button color="primary" [disabled]="players.length < 2" (click)="startGame()">Start Game</button>
+    </div>
+  </mat-card>
+</div>

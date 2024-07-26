@@ -1,0 +1,42 @@
+.stalemate-dialog {
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f5f5f5; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.stalemate-dialog h2 {
+  margin-bottom: 20px;
+  color: #333; 
+}
+
+.stalemate-dialog .mat-form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.stalemate-dialog .mat-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.stalemate-dialog button {
+  background-color: #4caf50; 
+  color: white;
+  border-radius: 4px; 
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: transform 0.2s; 
+}
+
+.stalemate-dialog button:hover {
+  transform: scale(1.05);
+}
+
+.stalemate-dialog button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

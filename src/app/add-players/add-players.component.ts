@@ -21,7 +21,6 @@ export class AddPlayersComponent {
 
   playerName: string = '';
   players: Player[] = [];
-  totalRounds: number = 5; // Define totalRounds here
 
   constructor(private router: Router) {}
 
@@ -31,7 +30,7 @@ export class AddPlayersComponent {
       // Prevent adding empty or duplicate player names
       return;
     }
-    this.players.push({ name: this.playerName.trim(), scores: Array(this.totalRounds).fill(0) });
+    this.players.push({ name: this.playerName.trim(), scores: [] }); // Initialize scores as an empty array
     this.playerName = ''; // Clear input after adding
     localStorage.setItem('players', JSON.stringify(this.players));
   }

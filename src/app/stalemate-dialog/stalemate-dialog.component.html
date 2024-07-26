@@ -1,0 +1,18 @@
+<div class="stalemate-dialog">
+  <h2>Stalemate!</h2>
+  <form>
+    <div *ngFor="let player of data.players; let i = index">
+      <mat-form-field appearance="fill">
+        <mat-label>{{ player.name }}'s Leftover Cards Sum</mat-label>
+        <input matInput type="number" [(ngModel)]="leftoverCardsSum[i]" name="leftoverSum{{i}}" min="1" required />
+        <mat-error *ngIf="leftoverCardsSum[i] === null || leftoverCardsSum[i] <= 0">
+          Please enter a valid score greater than zero.
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </form>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancel</button>
+    <button mat-button (click)="submit()" [disabled]="isSubmitDisabled()">Submit</button>
+  </div>
+</div>

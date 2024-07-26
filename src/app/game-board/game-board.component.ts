@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
+import { StalemateDialogComponent } from '../stalemate-dialog/stalemate-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-game-board',
@@ -16,11 +18,10 @@ export class GameBoardComponent implements OnInit {
 
   players: Player[] = [];
   currentRound: number = 0;
-  totalRounds: number = 5;
   dataSource: number[] = [];
-  displayedColumns: string[] = ['round']; // Initialize with round column
+  displayedColumns: string[] = ['round']; 
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, public dialog: MatDialog) {}
 
   ngOnInit() {
     const savedPlayers = localStorage.getItem('players');
@@ -33,9 +34,14 @@ export class GameBoardComponent implements OnInit {
   }
 
   initializeRounds() {
-    this.dataSource = Array.from({ length: this.totalRounds }, (_, i) => i + 1);
+    this.dataSource = Array.from({ length: this.currentRound + 1 }, (_, i) => i + 1);
+  
+    // Ensure players have a scores array with the correct length
     this.players.forEach(player => {
-      player.scores = Array(this.totalRounds).fill(null); // Initialize scores with null
+      if (player.scores.length < this.currentRound + 1) {
+        // Fill the scores array with nulls up to the current round index
+        player.scores = [...player.scores, ...Array(this.currentRound + 1 - player.scores.length).fill(null)];
+      }
     });
   }
 
@@ -48,13 +54,20 @@ export class GameBoardComponent implements OnInit {
   }
 
   nextRound() {
-    if (this.currentRound < this.totalRounds - 1) {
+    if (this.validateScores()) {
       this.currentRound++;
       this.updateDataSource();
     } else {
-      this.calculateTotalScores();
-      this.router.navigate(['/game-results']);
+      alert('Two or more players cannot have zero scores in the same round.');
     }
+  }
+
+  validateScores(): boolean {
+    // Check if any two players have zero scores in the current round
+    const scoresInCurrentRound = this.players.map(player => player.scores[this.currentRound + 1] || 0);
+    console.log(this.currentRound);
+    console.log(scoresInCurrentRound);
+    return scoresInCurrentRound.filter(score => score === 0).length <= 1;
   }
 
   calculateTotalScores() {
@@ -63,4 +76,33 @@ export class GameBoardComponent implements OnInit {
     });
     localStorage.setItem('players', JSON.stringify(this.players));
   }
+
+  stalemate() {
+    const dialogRef = this.dialog.open(StalemateDialogComponent, {
+      width: '250px',
+      data: { players: this.players }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.players.forEach((player, index) => {
+          player.scores[this.currentRound] = result[index];
+        });
+        this.calculateTotalScores();
+        this.router.navigate(['/game-results']);
+      }
+    });
+  }
+
+  getTotalScore(player: Player): number {
+    return player.scores.reduce((acc, score) => acc + (score || 0), 0);
+  }
+
+
+  finishGame() {
+    this.calculateTotalScores();
+    this.router.navigate(['/game-results']);
+  }
+  
+  
 }

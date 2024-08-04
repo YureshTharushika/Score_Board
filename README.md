@@ -1,6 +1,6 @@
 # Rummy Scoreboard
 
-Rummyi Scoreboard is a web application designed to keep track of scores for the Rummy card game. It allows players to add their names, manage scores across multiple rounds, handle stalemates, and view results. 
+Rummy Scoreboard is a web application designed to keep track of scores for the Rummy card game. It allows players to add their names, manage scores across multiple rounds, handle stalemates, and view results. 
 
 ## Live Demo
 

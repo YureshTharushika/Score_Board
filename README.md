@@ -4,7 +4,7 @@ Rummy Scoreboard is a web application designed to keep track of scores for the R
 
 ## Live Demo
 
-You can view the live application at [Here](https://gilded-capybara-ddaef4.netlify.app/game-board).
+You can view the live application at [Here](https://gilded-capybara-ddaef4.netlify.app).
 
 ## Features
 

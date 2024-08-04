@@ -1,10 +1,12 @@
 .container {
   text-align: center;
   margin-top: 50px;
+  padding: 0 20px 0 20px;
 }
 
 .container h2 {
   margin-bottom: 20px;
+  color: #333;
 }
 
 .container table {
@@ -25,7 +27,7 @@
 
 .container button {
   margin: 5px;
-  background-color: #4caf50;
+  background-color: #00cba9;
   color: white;
   border-radius: 4px;
   padding: 10px 40px;

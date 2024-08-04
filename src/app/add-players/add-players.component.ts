@@ -8,6 +8,8 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import { AddPlayerDialogComponent } from '../add-player-dialog/add-player-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 
 @Component({
@@ -19,29 +21,18 @@ import {MatIconModule} from '@angular/material/icon';
 })
 export class AddPlayersComponent {
 
-  playerName: string = '';
-  players: Player[] = [];
+  constructor(private router: Router, public dialog: MatDialog) {}
 
-  constructor(private router: Router) {}
+  openAddPlayerDialog() {
+    const dialogRef = this.dialog.open(AddPlayerDialogComponent, {
+      width: '300px',
+      disableClose: false
+    });
 
-  addPlayer() {
-
-    if (this.playerName.trim() === '' || this.players.some(player => player.name === this.playerName.trim())) {
-      // Prevent adding empty or duplicate player names
-      return;
-    }
-    this.players.push({ name: this.playerName.trim(), scores: [] }); // Initialize scores as an empty array
-    this.playerName = ''; // Clear input after adding
-    localStorage.setItem('players', JSON.stringify(this.players));
-  }
-
-  removePlayer(index: number) {
-    this.players.splice(index, 1);
-    localStorage.setItem('players', JSON.stringify(this.players));
-  }
-
-  startGame() {
-    localStorage.setItem('players', JSON.stringify(this.players));
-    this.router.navigate(['/game-board']);
+    dialogRef.afterClosed().subscribe(result => {
+      if (result && result.startGame) {
+        this.router.navigate(['/game-board']);
+      }
+    });
   }
 }

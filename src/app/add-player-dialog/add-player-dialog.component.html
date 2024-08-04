@@ -1,0 +1,23 @@
+<div class="addplayer-dialog">
+  <h2>Add Players</h2>
+  <div class="player-form">
+    <mat-form-field appearance="fill" class="player-input">
+      <mat-label>Player Name</mat-label>
+      <input matInput [(ngModel)]="playerName" />
+    </mat-form-field>
+    <button mat-icon-button color="primary" (click)="addPlayer()" class="add-player-button">
+      <mat-icon>person_add</mat-icon>
+    </button>
+  </div>
+  <div class="player-list">
+    <div *ngFor="let player of players; let i = index" class="player-item">
+      {{ player.name }}
+      <button mat-icon-button color="warn" (click)="removePlayer(i)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="dialog-actions">
+    <button mat-raised-button color="primary" [disabled]="players.length < 2" (click)="startGame()" class="start-game-button">Start Game</button>
+  </div>
+</div>

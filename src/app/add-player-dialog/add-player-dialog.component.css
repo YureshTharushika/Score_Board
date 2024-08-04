@@ -1,0 +1,87 @@
+.addplayer-dialog {
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.addplayer-dialog h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.addplayer-dialog .player-form {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.addplayer-dialog .player-input {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.addplayer-dialog .player-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.addplayer-dialog .player-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.addplayer-dialog .dialog-actions {
+  display: flex;
+  justify-content: center;
+}
+
+.addplayer-dialog .mat-icon-button.mat-warn {
+  color: #f44336;
+  background: none;
+}
+
+.addplayer-dialog .mat-icon-button.mat-warn:hover {
+  background: none;
+}
+
+.addplayer-dialog .mat-icon-button {
+  background: none;
+}
+
+.addplayer-dialog .mat-icon-button:hover {
+  background: none;
+}
+
+.addplayer-dialog .mat-icon-button .mat-icon {
+  margin: 0;
+}
+
+.addplayer-dialog .add-player-button {
+  color: #00cba9; 
+}
+
+.addplayer-dialog .start-game-button {
+  background-color: #00cba9;
+  color: white;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.addplayer-dialog .start-game-button:hover {
+  transform: scale(1.05);
+}
+
+.addplayer-dialog .start-game-button:disabled {
+  background-color: #bdbdbd; 
+  color: #757575; 
+  cursor: not-allowed;
+  opacity: 0.7;
+}

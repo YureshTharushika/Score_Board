@@ -1,28 +1,45 @@
 .container {
   text-align: center;
-  margin-top: 50px;
+  padding: 20px;
 }
 
-.container table {
+h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+h3 {
+  color: #333;
+}
+
+table {
   margin: auto;
-  width: 50%;
+  width: 80%;
   margin-bottom: 20px;
 }
 
-.container th, .container td {
+th, td {
   text-align: center;
+  padding: 8px;
 }
 
-.container h3 {
-  margin-top: 20px;
-}
-
-.container button {
-  background-color: #4caf50; 
+button {
+  background-color: #00cba9; 
   color: white;
   border-radius: 4px; 
-  padding: 10px 40px; 
+  padding: 10px 20px;
   font-size: 16px;
   border: none;
   cursor: pointer;
+  margin-left: 10px;
+  transition: transform 0.2s; 
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
 }

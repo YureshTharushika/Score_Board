@@ -1,82 +1,52 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; 
+}
+
 .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  justify-content: flex-start;
+  min-height: 100vh;
+  position: relative;
   text-align: center;
-  margin-top: 50px;
+  padding-top: 0px; 
 }
 
-.container h1 {
-  margin-bottom: 20px;
+h1 {
+  padding-top: 30px;
+  margin: 0;
+  font-size: 2rem; 
+  color: #333;
+  margin-bottom: 30px; 
 }
 
-.container mat-card {
-  display: inline-block;
-  text-align: left;
-  padding: 20px;
-  border-radius: 8px;
-  background-color: #f5f5f5; /* Light background color for the card */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  max-width: 600px; /* Limit card width */
-  width: 100%;
-}
-
-.container .player-form {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 10px;
-  justify-content: center; /* Center items horizontally */
-}
-
-.container .player-form mat-form-field {
-  width: auto;
-  flex: 1; /* Allow input to grow */
-  display: flex;
-  align-items: center; /* Center content vertically */
-}
-
-.container .player-form input {
-  
-  padding: 0 12px; /* Adjust padding for consistency */
-  font-size: 16px; /* Set font size to match button */
-}
-
-.container .player-form button {
-  height: 40px; /* Set height to match input */
-  border-radius: 4px; /* Less rounded button */
-  background-color: #4caf50; /* Green color */
+.start-game-button {
+  background-color: #00cba9; 
   color: white;
-  padding: 0 20px; /* Adjust padding for consistency */
-  border: none;
-  font-size: 16px; /* Font size to match input */
-  display: flex;
-  align-items: center; /* Center text vertically */
-}
-
-.container .player-list {
-  margin-top: 20px;
-}
-
-.container .player-list mat-chip-set {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.container .start-button-container {
-  text-align: center;
-  margin-top: 20px;
-}
-
-.container .start-button-container button {
-  background-color: #4caf50; /* Green color */
-  color: white;
-  border-radius: 4px; /* Less rounded button */
-  padding: 10px 40px; /* Longer button */
+  border-radius: 4px;
+  padding: 10px 20px;
   font-size: 16px;
   border: none;
   cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-.container .start-button-container button:disabled {
-  background-color: #ccc; /* Disabled button color */
-  cursor: not-allowed;
+.start-game-button:hover {
+  background-color: white;
+  color: #00cba9; 
+}
+
+.wave {
+  position: absolute; 
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: auto; 
+  margin: 0;
+  padding: 0;
+  overflow: hidden; 
 }

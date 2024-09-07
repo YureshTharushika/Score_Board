@@ -1,10 +1,10 @@
 # Rummy Scoreboard
 
-Rummy Scoreboard is a web application designed to keep track of scores for the Rummy card game. It allows players to add their names, manage scores across multiple rounds, handle stalemates, and view results. 
+Rummy Scoreboard is a web application designed to keep track of scores for the Rummy card game. It allows players to add their names, manage scores across multiple rounds, handle stalemates, and view results.
 
 ## Live Demo
 
-You can view the live application at [Here](https://gilded-capybara-ddaef4.netlify.app).
+You can view the live application at [Here](https://rummyscoreboard.netlify.app/).
 
 ## Features
 
@@ -19,34 +19,33 @@ You can view the live application at [Here](https://gilded-capybara-ddaef4.netli
 - **Angular Material**: UI component library for Angular.
 - **Netlify**: Hosting platform for deploying the application.
 
-
 ## Getting Started
 
 To get a local copy of this project running, follow these steps:
 
 1. **Clone the Repository**:
 
-    ```bash
-    git clone https://github.com/YureshTharushika/Score_Board.git
-    ```
+   ```bash
+   git clone https://github.com/YureshTharushika/Score_Board.git
+   ```
 
 2. **Navigate to the Project Directory**:
 
-    ```bash
-    cd rami-scoreboard
-    ```
+   ```bash
+   cd rami-scoreboard
+   ```
 
 3. **Install Dependencies**:
 
-    ```bash
-    npm install
-    ```
+   ```bash
+   npm install
+   ```
 
 4. **Run the Application**:
 
-    ```bash
-    ng serve
-    ```
+   ```bash
+   ng serve
+   ```
 
 5. **Open your Browser** and navigate to `http://localhost:4200` to view the application.
 
@@ -57,7 +56,6 @@ If you would like to contribute to this project, please follow these guidelines:
 1. **Fork the Repository** and create a new branch for your feature or bug fix.
 2. **Make Your Changes** and test them thoroughly.
 3. **Submit a Pull Request** detailing the changes you have made.
-
 
 ## Acknowledgements
 
